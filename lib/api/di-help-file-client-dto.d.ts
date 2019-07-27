@@ -1,8 +1,8 @@
 export interface IDiHelpFileClientDto {
-    Url: number;
+    Url: string;
     Name: string;
 }
 export declare class DiHelpFileClientDto implements IDiHelpFileClientDto {
-    Url: number;
+    Url: string;
     Name: string;
 }

@@ -258,9 +258,9 @@
             function (value) {
                 var _this = this;
                 if (this.byLocation)
-                    throw Error('Do not use article-id with by-location');
+                    throw Error('Do not use articleId with byLocation');
                 if (this.articleUid)
-                    throw Error('Do not use article-id with article-uid');
+                    throw Error('Do not use articleId with articleUid');
                 if (this._articleId === value)
                     return;
                 this._articleId = value;
@@ -299,9 +299,9 @@
             function (value) {
                 var _this = this;
                 if (this.byLocation)
-                    throw Error('Do not use article-uid with by-location');
+                    throw Error('Do not use articleUid with byLocation');
                 if (this.articleId)
-                    throw Error('Do not use article-uid with article-id');
+                    throw Error('Do not use articleUid with article-id');
                 if (this._articleUid === value)
                     return;
                 this._articleUid = value;
@@ -340,9 +340,9 @@
             function (value) {
                 var _this = this;
                 if (this.articleId)
-                    throw Error('Do not use by-location with article-id');
+                    throw Error('Do not use byLocation with articleId');
                 if (this.articleUid)
-                    throw Error('Do not use by-location with article-uid');
+                    throw Error('Do not use byLocation with articleUid');
                 if (this._byLocation === value)
                     return;
                 this._byLocation = value;
