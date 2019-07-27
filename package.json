@@ -1,0 +1,27 @@
+{
+  "name": "ngx-di-help",
+  "version": "0.0.1",
+  "keywords": [
+    "Angular",
+    "DiHelp"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@angular/core": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@angular/router": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "ngx-popper": "^6.0.0"
+  },
+  "main": "bundles/ngx-di-help.umd.js",
+  "module": "fesm5/ngx-di-help.js",
+  "es2015": "fesm2015/ngx-di-help.js",
+  "esm5": "esm5/ngx-di-help.js",
+  "esm2015": "esm2015/ngx-di-help.js",
+  "fesm5": "fesm5/ngx-di-help.js",
+  "fesm2015": "fesm2015/ngx-di-help.js",
+  "typings": "ngx-di-help.d.ts",
+  "metadata": "ngx-di-help.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
