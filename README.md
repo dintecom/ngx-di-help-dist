@@ -2,7 +2,7 @@
 
 ## Install
 
-- `npm install dintecom/ngx-di-help-dist#v0.0.2`
+- `npm install dintecom/ngx-di-help-dist#v0.0.3`
 - install `npm install ngx-popper` - peer dependencies of ngx-di-help
 
 ## Setup
