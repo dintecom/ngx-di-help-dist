@@ -15,6 +15,25 @@ import { of, isObservable, throwError } from 'rxjs';
  */
 class DiHelpUrlResolver {
 }
+if (false) {
+    /**
+     * @abstract
+     * @return {?}
+     */
+    DiHelpUrlResolver.prototype.resolve = function () { };
+}
+/**
+ * @record
+ */
+function DiHelpConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    DiHelpConfig.prototype.diHelpUrl;
+    /** @type {?|undefined} */
+    DiHelpConfig.prototype.diHelpUrlResolver;
+    /** @type {?|undefined} */
+    DiHelpConfig.prototype.cacheLifetimeSecond;
+}
 /** @type {?} */
 const DI_HELP_URL_TOKEN = new InjectionToken('DI_HELP_URL');
 /** @type {?} */
@@ -24,6 +43,16 @@ const DI_HELP_CACHE_LIFETIME_TOKEN = new InjectionToken('DI_HELP_CACHE_LIFETIME'
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ICacheEntry() { }
+if (false) {
+    /** @type {?|undefined} */
+    ICacheEntry.prototype.article;
+    /** @type {?|undefined} */
+    ICacheEntry.prototype.error;
+}
 /** @type {?} */
 const cacheLifetimeSecondDefault = 30 * 60;
 class DiHelpService {
@@ -197,6 +226,53 @@ DiHelpService.ctorParameters = () => [
     { type: Number, decorators: [{ type: Inject, args: [DI_HELP_CACHE_LIFETIME_TOKEN,] }] },
     { type: HttpClient }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.cacheLifetime;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.cacheById;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.requestCacheById;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.cacheByUid;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.requestCacheByUid;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.cacheByUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.requestCacheByUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.diHelpUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpService.prototype.http;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -359,7 +435,7 @@ class DiHelpComponent {
 DiHelpComponent.decorators = [
     { type: Component, args: [{
                 selector: 'di-help',
-                template: "<span class=\"fa-stack\"\n      [ngStyle]=\"{'font-size': inline ? '0.5em' : '10px'}\"\n      [class.invisible]=\"!(alwaysVisible || article)\"\n      [class.disabled]=\"!article\"\n      [popper]=\"flyOut\"\n      [popperDisabled]=\"!article\"\n      [popperTrigger]=\"'hover'\"\n      [popperPlacement]=\"'top'\"\n      [popperAppendTo]=\"'body'\"\n      [popperTimeout]=\"500\"\n      [popperStyles]=\"{'min-width': '150px', 'max-width': '400px'}\"\n      [popperHideOnMouseLeave]=\"true\"\n      [popperHideOnClickOutside]=\"true\"\n      [popperHideOnScroll]=\"true\"\n      [popperApplyClass]=\"'di-help-popper'\">\n    <i class=\"fa fa-circle fa-stack-2x\"></i>\n    <i class=\"fa fa-question fa-stack-1x\"></i>\n</span>\n\n<popper-content #flyOut>\n    <ng-container *ngIf=\"article\">\n        <h4>{{article.Name}}</h4>\n        <span>\n            {{article.ShortText}}\n        </span>\n        <hr class=\"my-1\" *ngIf=\"article.DiHelpFiles?.length\">\n        <a *ngFor=\"let file of article.DiHelpFiles\"\n           class=\"d-block\"\n           target=\"_blank\"\n           href=\"{{file.Url}}\">\n            {{file.Name}}\n        </a>\n        <hr class=\"my-1\" *ngIf=\"article.Links?.length\">\n        <a *ngFor=\"let link of article.Links\"\n           class=\"d-block\"\n           target=\"_blank\"\n           href=\"{{link.Url}}\">\n            {{link.Name}}\n        </a>\n    </ng-container>\n</popper-content>\n",
+                template: "<span class=\"fa-stack\"\r\n      [ngStyle]=\"{'font-size': inline ? '0.5em' : '10px'}\"\r\n      [class.invisible]=\"!(alwaysVisible || article)\"\r\n      [class.disabled]=\"!article\"\r\n      [popper]=\"flyOut\"\r\n      [popperDisabled]=\"!article\"\r\n      [popperTrigger]=\"'hover'\"\r\n      [popperPlacement]=\"'top'\"\r\n      [popperAppendTo]=\"'body'\"\r\n      [popperTimeout]=\"500\"\r\n      [popperStyles]=\"{'min-width': '150px', 'max-width': '400px'}\"\r\n      [popperHideOnMouseLeave]=\"true\"\r\n      [popperHideOnClickOutside]=\"true\"\r\n      [popperHideOnScroll]=\"true\"\r\n      [popperApplyClass]=\"'di-help-popper'\">\r\n    <i class=\"fa fa-circle fa-stack-2x\"></i>\r\n    <i class=\"fa fa-question fa-stack-1x\"></i>\r\n</span>\r\n\r\n<popper-content #flyOut>\r\n    <ng-container *ngIf=\"article\">\r\n        <h4>{{article.Name}}</h4>\r\n        <span>\r\n            {{article.ShortText}}\r\n        </span>\r\n        <hr class=\"my-1\" *ngIf=\"article.DiHelpFiles?.length\">\r\n        <a *ngFor=\"let file of article.DiHelpFiles\"\r\n           class=\"d-block\"\r\n           target=\"_blank\"\r\n           href=\"{{file.Url}}\">\r\n            {{file.Name}}\r\n        </a>\r\n        <hr class=\"my-1\" *ngIf=\"article.Links?.length\">\r\n        <a *ngFor=\"let link of article.Links\"\r\n           class=\"d-block\"\r\n           target=\"_blank\"\r\n           href=\"{{link.Url}}\">\r\n            {{link.Name}}\r\n        </a>\r\n    </ng-container>\r\n</popper-content>\r\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: [":host .fa-stack{cursor:help}:host .fa-stack.disabled{cursor:default;opacity:.6}:host .fa-stack .fa-stack-1x{font-size:1.5em;color:#f2be35}:host .fa-stack .fa-stack-2x{color:#007bff}:host i{vertical-align:middle}::ng-deep .di-help-popper.ngxp__container{background-color:#f9f9f9;z-index:100000000}"]
             }] }
@@ -377,6 +453,49 @@ DiHelpComponent.propDecorators = {
     alwaysVisible: [{ type: Input }],
     inline: [{ type: Input }]
 };
+if (false) {
+    /** @type {?} */
+    DiHelpComponent.prototype.article;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype.routerEventsSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype._articleId;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype._articleUid;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype._byLocation;
+    /** @type {?} */
+    DiHelpComponent.prototype.alwaysVisible;
+    /** @type {?} */
+    DiHelpComponent.prototype.inline;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype.diHelpService;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype.router;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpComponent.prototype.changeDetector;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -516,7 +635,7 @@ class DiHelpFaqComponent {
 DiHelpFaqComponent.decorators = [
     { type: Component, args: [{
                 selector: 'di-help-faq',
-                template: "<input type=\"search\"\n       class=\"form-control\"\n       (input)=\"applyFilter($event.target.value)\"\n       name=\"article-search\"\n       placeholder=\"Search...\"\n       autocomplete=\"off\">\n\n<div class=\"d-block mt-3\" *ngFor=\"let article of articles; let last = last\">\n    <h4>{{article.Name}}</h4>\n    <div class=\"d-block\" [innerHtml]=\"article.ShortText\"></div>\n    <div class=\"mt-3\" *ngIf=\"article.DiHelpFiles\">\n        <a class=\"d-block mt-1\" *ngFor=\"let file of article.DiHelpFiles\" [href]=\"file.Url\" target=\"_blank\">{{file.Name}}</a>\n    </div>\n    <div class=\"mt-3\" *ngIf=\"article.Links\">\n        <a class=\"d-block mt-1\" *ngFor=\"let link of article.Links\" [href]=\"link.Url\" target=\"_blank\">{{link.Name}}</a>\n    </div>\n    <hr class=\"mt-3\" *ngIf=\"!last\"/>\n</div>\n"
+                template: "<input type=\"search\"\r\n       class=\"form-control\"\r\n       (input)=\"applyFilter($event.target.value)\"\r\n       name=\"article-search\"\r\n       placeholder=\"Search...\"\r\n       autocomplete=\"off\">\r\n\r\n<div class=\"d-block mt-3\" *ngFor=\"let article of articles; let last = last\">\r\n    <h4>{{article.Name}}</h4>\r\n    <div class=\"d-block\" [innerHtml]=\"article.ShortText\"></div>\r\n    <div class=\"mt-3\" *ngIf=\"article.DiHelpFiles\">\r\n        <a class=\"d-block mt-1\" *ngFor=\"let file of article.DiHelpFiles\" [href]=\"file.Url\" target=\"_blank\">{{file.Name}}</a>\r\n    </div>\r\n    <div class=\"mt-3\" *ngIf=\"article.Links\">\r\n        <a class=\"d-block mt-1\" *ngFor=\"let link of article.Links\" [href]=\"link.Url\" target=\"_blank\">{{link.Name}}</a>\r\n    </div>\r\n    <hr class=\"mt-3\" *ngIf=\"!last\"/>\r\n</div>\r\n"
             }] }
 ];
 /** @nocollapse */
@@ -526,6 +645,25 @@ DiHelpFaqComponent.ctorParameters = () => [
 DiHelpFaqComponent.propDecorators = {
     siteId: [{ type: Input }]
 };
+if (false) {
+    /** @type {?} */
+    DiHelpFaqComponent.prototype.articles;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpFaqComponent.prototype._siteId;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpFaqComponent.prototype.allArticles;
+    /**
+     * @type {?}
+     * @private
+     */
+    DiHelpFaqComponent.prototype.diHelpService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -550,6 +688,16 @@ DiHelpFaqModule.decorators = [
                 ]
             },] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { DI_HELP_CACHE_LIFETIME_TOKEN, DI_HELP_URL_TOKEN, DiHelpComponent, DiHelpFaqComponent, DiHelpFaqModule, DiHelpModule, DiHelpUrlResolver, cacheLifetimeSecondDefault as ɵa, DiHelpService as ɵb };
 //# sourceMappingURL=ngx-di-help.js.map

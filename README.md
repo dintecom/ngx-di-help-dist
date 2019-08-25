@@ -2,14 +2,15 @@
 
 ## Install
 
-- `npm install dintecom/ngx-di-help-dist#v0.0.3`
+- `npm install dintecom/ngx-di-help-dist#v0.0.4`
 - install `npm install ngx-popper` - peer dependencies of ngx-di-help
 
 ## Setup
 
-You'll need to add `DiHelpModule` to your application module and confugure DiHelp HTTP address.
+You'll need to add `DiHelpModule` and [`ngx-popper`](https://github.com/MrFrankel/ngx-popper#ngx-popper) to your application module and confugure DiHelp HTTP address.
 
 ```typescript
+import { NgxPopperModule } from 'ngx-popper';
 import { DiHelpModule } from 'ngx-di-help';
 ...
 
@@ -18,6 +19,7 @@ import { DiHelpModule } from 'ngx-di-help';
     AppComponent
   ],
   imports: [
+    NgxPopperModule.forRoot(),
     DiHelpModule.forRoot({
         diHelpUrl: 'https://dihelp.example.com'
     }),
@@ -52,6 +54,7 @@ export class CustomDiHelpUrlResolver implements DiHelpUrlResolver {
     AppComponent
   ],
   imports: [
+    NgxPopperModule.forRoot(),
     DiHelpModule.forRoot({
         diHelpUrlResolver: {
             provide: DiHelpUrlResolver,
@@ -74,6 +77,7 @@ export class AppModule { }
     AppComponent
   ],
   imports: [
+    NgxPopperModule.forRoot(),
     DiHelpModule.forRoot({
         cacheLifetimeSecond: 10 * 60, // 10 minutes
         ...
